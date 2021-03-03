@@ -1,6 +1,5 @@
 FROM nginx:1.18.0
-RUN rm /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf
-COPY build/ /usr/var/www/html/
-COPY nginx/ /etc/nginx
+COPY ./build /var/www
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
-CMD ["nginx","-g","daemon off;"]
+ENTRYPOINT ["nginx","-g","daemon off;"]
